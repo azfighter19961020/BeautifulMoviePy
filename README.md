@@ -5,13 +5,13 @@
 # MoviePy is beautiful
 
 
-介面
+## 介面
 
 <img src="https://github.com/charlie11438/BeautifulMoviePy/blob/master/GUI.png?raw=true" />
 
 功能：
 <p>
-1.音量調整
+1.音量調整<br>
  放大 / 縮小幾倍
 </p>
  
