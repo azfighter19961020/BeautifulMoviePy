@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>527</width>
-    <height>594</height>
+    <width>945</width>
+    <height>672</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,7 +37,7 @@
   <widget class="QPushButton" name="Source">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>10</x>
      <y>100</y>
      <width>101</width>
      <height>31</height>
@@ -55,8 +55,8 @@
   <widget class="QPushButton" name="target">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>150</y>
+     <x>470</x>
+     <y>100</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -73,7 +73,7 @@
   <widget class="QTextBrowser" name="SourcePath">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>120</x>
      <y>100</y>
      <width>341</width>
      <height>31</height>
@@ -83,8 +83,8 @@
   <widget class="QTextBrowser" name="OutputPath">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>150</y>
+     <x>580</x>
+     <y>100</y>
      <width>341</width>
      <height>31</height>
     </rect>
@@ -93,8 +93,8 @@
   <widget class="QCheckBox" name="startOption">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>200</y>
+     <x>20</x>
+     <y>150</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -112,8 +112,8 @@
   <widget class="QCheckBox" name="endOption">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>200</y>
+     <x>480</x>
+     <y>150</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -131,28 +131,52 @@
   <widget class="QTextEdit" name="startTimes">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>230</y>
-     <width>201</width>
+     <x>120</x>
+     <y>150</y>
+     <width>241</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+    </font>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Consolas'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'PMingLiU';&quot;&gt;example format:00:00:08&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QTextEdit" name="endTimes">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>230</y>
-     <width>201</width>
+     <x>580</x>
+     <y>150</y>
+     <width>261</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+    </font>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Consolas'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'PMingLiU';&quot;&gt;example format:00:17:40&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="fftOption">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>280</y>
+     <x>20</x>
+     <y>190</y>
      <width>301</width>
      <height>31</height>
     </rect>
@@ -170,8 +194,8 @@
   <widget class="QCheckBox" name="IncreaseV">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>310</y>
+     <x>20</x>
+     <y>230</y>
      <width>191</width>
      <height>41</height>
     </rect>
@@ -189,8 +213,8 @@
   <widget class="QCheckBox" name="DecreaseV">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>310</y>
+     <x>440</x>
+     <y>230</y>
      <width>191</width>
      <height>41</height>
     </rect>
@@ -208,8 +232,8 @@
   <widget class="QTextEdit" name="increaseInput">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>360</y>
+     <x>210</x>
+     <y>230</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -218,8 +242,8 @@
   <widget class="QTextEdit" name="decreaseInput">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>360</y>
+     <x>630</x>
+     <y>230</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -228,8 +252,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>380</y>
+     <x>360</x>
+     <y>250</y>
      <width>47</width>
      <height>12</height>
     </rect>
@@ -246,8 +270,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>380</y>
+     <x>780</x>
+     <y>250</y>
      <width>47</width>
      <height>12</height>
     </rect>
@@ -264,8 +288,8 @@
   <widget class="QPushButton" name="toMP4">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>430</y>
+     <x>240</x>
+     <y>500</y>
      <width>151</width>
      <height>61</height>
     </rect>
@@ -283,8 +307,8 @@
   <widget class="QPushButton" name="toGIF">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>430</y>
+     <x>480</x>
+     <y>500</y>
      <width>151</width>
      <height>61</height>
     </rect>
@@ -302,8 +326,8 @@
   <widget class="QLabel" name="status">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>510</y>
+     <x>210</x>
+     <y>580</y>
      <width>451</width>
      <height>71</height>
     </rect>
@@ -316,6 +340,115 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="subclip_concat">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>270</y>
+     <width>251</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>subclips - concatnate</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="subclip_seperate">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>270</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>subclips - seperate</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="subclipText">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>310</y>
+     <width>381</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+    </font>
+   </property>
+   <property name="accessibleDescription">
+    <string/>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Consolas'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;example format:00:00:08~00:00:15&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="seperateText">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>310</y>
+     <width>381</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+    </font>
+   </property>
+   <property name="accessibleDescription">
+    <string/>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Consolas'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;example format:0001.mp4&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;(base on output path)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="subclip_seperate_2">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>480</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Consolas</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>generate filename by serial number</string>
    </property>
   </widget>
  </widget>
