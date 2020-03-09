@@ -5,6 +5,7 @@ from discretefft import takeLoud
 from moviepy.editor import *
 from moviepy.audio.fx.all import volumex
 import threading
+import re
 
 class AppWindow(QDialog):
 	def __init__(self):
@@ -22,18 +23,35 @@ class AppWindow(QDialog):
 	def targetPath(self):
 		path,fileType = QFileDialog.getSaveFileName(self,"choose target file","C:/")
 		self.ui.OutputPath.setText(path)
+	def subClipListGenerate(self,sourceClip,partsRowSplit):
+		VideoClip = []
+		for i in range(len(partsRowSplit)):
+			start,end = partsRowSplit[i].split('~')
+			print(start,end)
+			VideoClip.append(sourceClip.subclip(start,end))
+		print("generateSuccess")
+		return VideoClip		
+	def concateSubClip(self,sourceClip,partsRowSplit):
+		VideoClip = self.subClipListGenerate(sourceClip,partsRowSplit)
+		concatAll = concatenate_videoclips(VideoClip)
+		return concatAll
+	def seperateSubClip(self,sourceClip,partsRowSplit):
+		VideoClip = self.subClipListGenerate(sourceClip,partsRowSplit)
+		return VideoClip		
+
 	def to_mp4_child(self):
 		try:
+			p = True
 			print(self.ui.SourcePath.toPlainText())
 			sourceClip = VideoFileClip(self.ui.SourcePath.toPlainText())
-			start = int(self.ui.startTimes.toPlainText()) if self.ui.startTimes.toPlainText() else ""
-			stop = int(self.ui.endTimes.toPlainText()) if self.ui.endTimes.toPlainText() else ""
+			start = self.ui.startTimes.toPlainText()
+			stop = self.ui.endTimes.toPlainText()
 			if self.ui.startOption.isChecked() and self.ui.endOption.isChecked():
 				sourceClip = sourceClip.subclip(start,stop)
 			if self.ui.startOption.isChecked():
 				sourceClip = sourceClip.subclip(start,sourceClip.duration)
 			if self.ui.endOption.isChecked():
-				sourceClip = sourceClip.subclip(0,stop)
+				sourceClip = sourceClip.subclip("00:00:00",stop)
 			if self.ui.fftOption.isChecked():
 				sourceClip = takeLoud(sourceClip)
 			if self.ui.IncreaseV.isChecked():
@@ -46,8 +64,43 @@ class AppWindow(QDialog):
 				audio_clip = sourceClip.audio
 				new_audio_clip = volumex(audio_clip,1/decrease)
 				sourceClip.set_audio(new_audio_clip)
-			sourceClip.write_videofile(self.ui.OutputPath.toPlainText())
-			self.ui.status.setText("success")
+			if self.ui.subclip_concat.isChecked() and not self.ui.subclip_seperate.isChecked():
+				parts = self.ui.subclipText.toPlainText()
+				partsRowSplit = parts.split('\n')
+				sourceClip = self.concateSubClip(sourceClip,partsRowSplit)
+			elif self.ui.subclip_seperate.isChecked() and not self.ui.generateSerial.isChecked():
+				p = False
+				parts = self.ui.subclipText.toPlainText()
+				partsRowSplit = parts.split('\n')
+				fileName = self.ui.seperateText.toPlainText()
+				fileNameSplit = fileName.split('\n')
+				fileNameList = []
+				currentDirAll = self.ui.OutputPath.toPlainText()
+				currentDir = re.sub('[a-zA-z0-9]+[.][a-zA-z0-9]+','',currentDirAll)
+				print(currentDir)
+				for i in fileNameSplit:
+					fileNameList.append(currentDir+i)
+				VideoSeperateClip = self.seperateSubClip(sourceClip,partsRowSplit)
+			elif self.ui.subclip_seperate.isChecked() and self.ui.generateSerial.isChecked():
+				p = False
+				parts = self.ui.subclipText.toPlainText()
+				partsRowSplit = parts.split('\n')
+				fileNameList = []
+				currentDirAll = self.ui.OutputPath.toPlainText()
+				currentDir = re.sub('[a-zA-z0-9]+[.][a-zA-z0-9]+','',currentDirAll)
+				print(currentDir)
+				for i in range(1,len(partsRowSplit)+1):
+					fileNameList.append(currentDir+str(i)+".mp4")
+				VideoSeperateClip = self.seperateSubClip(sourceClip,partsRowSplit)			
+			if p:
+				sourceClip.write_videofile(self.ui.OutputPath.toPlainText())
+				self.ui.status.setText("success")
+			else:
+				print(fileNameList)
+				print(VideoSeperateClip)
+				for i,j in zip(fileNameList,VideoSeperateClip):
+					j.write_videofile(i)
+				self.ui.status.setText("success")
 		except Exception as e:
 			print(e)
 			self.ui.status.setText("Error:"+str(e))
@@ -81,7 +134,8 @@ class AppWindow(QDialog):
 		self.gif_thread.setDaemon(True)
 		self.gif_thread.start()
 
-app = QApplication(sys.argv)
-w = AppWindow()
-w.show()
-sys.exit(app.exec_())
+if __name__ == "__main__":
+	app = QApplication(sys.argv)
+	w = AppWindow()
+	w.show()
+	sys.exit(app.exec_())
